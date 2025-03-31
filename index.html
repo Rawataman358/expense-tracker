@@ -75,7 +75,7 @@
                 <option value="Petrol">Petrol</option>
                 <option value="Other">Other</option>
             </select> <br>
-            <input type="number" id="amount" placeholder="Amount" required> <br>
+            <input type="number" id="amount" placeholder="Amount" required oninput="this.value = this.value.replace(/[^0-9.]/g, '');"> <br>
             <input type="submit" value="Add Expense">
         </form>
         <h3>Expense Summary</h3>
@@ -107,7 +107,7 @@
 
                     const category = document.getElementById('category').value
                     const amount = document.getElementById('amount').value
-                    if (document && category && amount) {
+                    if (description && category && amount) {
                         const newRow = document.createElement('tr')
                         newRow.innerHTML = `<td> ${description}</td> <td>${category}</td> <td> ${amount}</td>`
                         expenselist.appendChild(newRow)
